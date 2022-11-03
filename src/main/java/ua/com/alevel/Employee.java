@@ -1,5 +1,7 @@
 package ua.com.alevel;
 
+import ua.com.alevel.validation.CheckEmail;
+
 import javax.validation.constraints.Min;
 import javax.validation.constraints.Pattern;
 import javax.validation.constraints.Size;
@@ -20,6 +22,8 @@ public class Employee {
     private List<String> languages;
     @Pattern(regexp = "\\d{3}-\\d{2}-\\d{2}", message = "wrong format of number. Use next pattern: XXX-XX-XX")
     private String phoneNumber;
+    @CheckEmail
+    private String email;
 
     public Employee() {
     }
@@ -78,6 +82,14 @@ public class Employee {
 
     public void setPhoneNumber(String phoneNumber) {
         this.phoneNumber = phoneNumber;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
     }
 
     @Override
